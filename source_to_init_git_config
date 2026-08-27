@@ -1,3 +1,0 @@
-git config --global init.defaultBranch main
-git config --global user.email james.polly@noaa.gov
-git config --global user.name "James Polly"
