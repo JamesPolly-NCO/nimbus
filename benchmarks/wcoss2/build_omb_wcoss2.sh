@@ -5,6 +5,7 @@ module load PrgEnv-intel
 # link to the mpi libraries needed for compilation
 module load cray-mpich/8.1.19
 
+wget --no-check-certificate https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.5.2.tar.gz
 tar xf osu-micro-benchmarks-7.5.2.tar.gz
 cd osu-micro-benchmarks-7.5.2
 ccloc=$(which cc)
