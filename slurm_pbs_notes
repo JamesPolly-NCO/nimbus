@@ -1,0 +1,46 @@
+#!/bin/bash
+# PBS example from WCOSS2 docs:
+#PBS -N hello_mpmd
+# Join error and output. Will be placed in current working directory
+#PBS -j oe
+#PBS -A project
+#Select 1 node and 32 cores
+#Request 32 mpiprocs - 1 for each serial job
+#PBS -l place=shared:vscatter,select=1:ncpus=32:mpiprocs=32:mem=500MB:prepost=true
+#PBS -q dev
+#PBS -l walltime=00:01:00
+
+## module load whatever
+
+## run latency
+
+#### kyle's script:
+#SBATCH --job-name=tstmpi-impi
+#SBATCH --partition=compute
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=00:05:00
+#SBATCH --output=tstmpi-impi.%j.out
+#SBATCH --error=tstmpi-impi.%j.err
+
+set -eo pipefail
+
+source /opt/intel/oneapi/compiler/2026.1/env/vars.sh
+source /opt/intel/oneapi/mpi/2021.18/env/vars.sh
+
+export I_MPI_FABRICS=ofi
+export FI_PROVIDER="verbs;ofi_rxm"
+export FI_VERBS_INLINE_SIZE=39
+export FI_OFI_RXM_BUFFER_SIZE=4096
+export FI_UNIVERSE_SIZE=$SLURM_NTASKS
+export FI_OFI_RXM_SAR_LIMIT=2147483648
+export I_MPI_PIN_DOMAIN=numa
+export I_MPI_DEBUG=5
+
+export I_MPI_PMI=pmi2
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so
+
+ulimit -l unlimited || true
+ulimit -n 65535 || true
+
+srun --mpi=pmi2 ./tstmpi
