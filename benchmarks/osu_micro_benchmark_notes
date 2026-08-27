@@ -1,0 +1,17 @@
+# wget --no-check-certificate https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.5.2.tar.gz
+# tar xf osu-micro-benchmarks-7.5.2.tar.gz 
+# cd osu-micro-benchmarks-7.5.2/
+# module purge
+# module load mpi/openmpi-x86_64
+# autoreconf -if
+# ./configure CC=/usr/lib64/openmpi/bin/mpicc CXX=/usr/lib64/openmpi/bin/mpicxx --prefix=$(pwd)/build
+# make && make install
+
+### Then find execs in build/libexec
+
+
+### build with intel:
+# module purge
+# source /opt/intel/oneapi/mpi/2021.18/env/vars.sh
+# autoreconf -if
+# ./configure CC=/opt/intel/oneapi/mpi/2021.18/bin/mpicc CXX=/opt/intel/oneapi/mpi/2021.18/bin/mpicxx --prefix=$(pwd)/build

@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -q preprod
+#PBS -A TEST-T2O
+#PBS -l select=2:ncpus=1:mpiprocs=1
+#PBS -l walltime=00:10:00
+#PBS -N osu_latency
+
+module load PrgEnv-intel
+module load cray-pals/1.0.12
+module load cray-mpich/8.1.19
+
+cd /lfs/f1/ops/para/tmp/latency_test
+
+mpiexec -n2 --ppn 1 --cpu-bind core /lfs/h1/nco/idsb/noscrub/james.polly/work/omb/osu-micro-benchmarks-7.5.2/build/lib/osu-micro-benchmarks/mpi/pt2pt/osu_latency
