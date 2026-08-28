@@ -17,8 +17,8 @@ export FI_OFI_RXM_SAR_LIMIT=2147483648
 
 export FI_OFI_RXM_USE_SRX=0
 
-#export I_MPI_DEBUG=5
-export I_MPI_DEBUG=0
+export I_MPI_DEBUG=5
+#export I_MPI_DEBUG=0
 export I_MPI_WAIT_MODE=0
 export I_MPI_ASYNC_PROGRESS=0
 
@@ -43,7 +43,7 @@ fi
 srun --mpi=pmi2 \
      --partition=compute \
      --nodes=2 \
-     --nodelist=wcoss3-compute-01,wcoss3-compute-02 \
+     --nodelist=wcoss3-compute-10,wcoss3-compute-78 \
      --ntasks-per-node=1 \
      --cpu-bind=core \
      --exclusive \

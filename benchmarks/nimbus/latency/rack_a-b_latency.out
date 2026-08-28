@@ -1,0 +1,56 @@
+   WARNING: vars.sh does not set up dependencies when invoked directly. Please perform environment setup for UMF before running DPC++ applications.
+[0] MPI startup(): PMI API: pmi2
+[0] MPI startup(): Intel(R) MPI Library, Version 2021.18.1  Build 20260626 (id: b44796a)
+[0] MPI startup(): Copyright (C) 2003-2026 Intel Corporation.  All rights reserved.
+[0] MPI startup(): library kind: release
+[0] MPI startup(): libfabric version: 2.4.0-impi
+[0] MPI startup(): libfabric provider: verbs;ofi_rxm
+[0] MPI startup(): File "/opt/intel/oneapi/mpi/2021.18/opt/mpi/etc/tuning_generic_ofi_verbs-ofi-rxm.dat" not found
+[0] MPI startup(): Load tuning file: "/opt/intel/oneapi/mpi/2021.18/opt/mpi/etc/tuning_generic_ofi.dat"
+[0] MPI startup(): Number of NICs:  1 
+[0] MPI startup(): ===== NIC pinning on wcoss3-compute-10 =====
+[0] MPI startup(): Rank    Thread id  Pin nic
+[0] MPI startup(): 0       0          irdma0
+[0] MPI startup(): ===== CPU pinning =====
+[0] MPI startup(): Rank    Pid      Node name          Pin cpu
+[0] MPI startup(): 0       964303   wcoss3-compute-10  {0}
+[0] MPI startup(): 1       952490   wcoss3-compute-11  {0}
+[0] MPI startup(): I_MPI_ROOT=/opt/intel/oneapi/mpi/2021.18
+[0] MPI startup(): I_MPI_HYDRA_BOOTSTRAP_EXEC_EXTRA_ARGS=--external-launcher
+[0] MPI startup(): I_MPI_HYDRA_BOOTSTRAP=slurm
+[0] MPI startup(): I_MPI_PIN=1
+[0] MPI startup(): I_MPI_PIN_PROCESSOR_LIST=0
+[0] MPI startup(): I_MPI_PIN_DOMAIN=core
+[0] MPI startup(): I_MPI_FABRICS=ofi
+[0] MPI startup(): I_MPI_WAIT_MODE=0
+[0] MPI startup(): I_MPI_ASYNC_PROGRESS=0
+[0] MPI startup(): I_MPI_DEBUG=5
+[0] MPI startup(): I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so
+[0] MPI startup(): I_MPI_PMI=pmi2
+
+# OSU MPI Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+1                       8.42
+2                       8.42
+4                       8.42
+8                       8.35
+16                      8.29
+32                      8.36
+64                      8.51
+128                     8.52
+256                     9.05
+512                     9.12
+1024                    9.25
+2048                    9.60
+4096                   10.37
+8192                   11.19
+16384                  11.79
+32768                  13.35
+65536                  16.26
+131072                 21.89
+262144                 33.29
+524288                 55.56
+1048576               100.05
+2097152               189.73
+4194304               368.45
