@@ -11,4 +11,4 @@ module load cray-mpich/8.1.19
 
 cd /lfs/f1/ops/para/tmp/latency_test
 
-mpiexec -n2 --ppn 1 --cpu-bind core /lfs/h1/nco/idsb/noscrub/james.polly/work/omb/osu-micro-benchmarks-7.5.2/build/lib/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+mpiexec -n2 --ppn 1 --cpu-bind core /lfs/h1/nco/idsb/noscrub/james.polly/work/omb/nimbus/benchmarks/wcoss2/osu-micro-benchmarks-7.5.2/build/lib/osu-micro-benchmarks/mpi/pt2pt/osu_latency
