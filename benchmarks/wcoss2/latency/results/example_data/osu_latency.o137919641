@@ -1,0 +1,52 @@
+PBS: Running prologue on parent mom node: nid001024...
+Job 137919641.dbqs01 nodelist: nid[001024,001100]
+
+# OSU MPI Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+1                       2.49
+2                       2.48
+4                       2.48
+8                       2.48
+16                      2.51
+32                      2.49
+64                      2.53
+128                     2.57
+256                     3.30
+512                     3.43
+1024                    3.65
+2048                    4.07
+4096                    4.99
+8192                    5.95
+16384                   7.86
+32768                  10.00
+65536                  13.46
+131072                 19.77
+262144                 32.11
+524288                 54.91
+1048576                97.89
+2097152               183.57
+4194304               354.68
+PBS: Running epilogue on parent mom node: nid001024...
+##### Job 137919641.dbqs01 - PBS Job Script:
+(Note: Duplicate #PBS entries are a function how PBS interprets and caches the original job script.)
+
+#!/bin/bash
+#PBS -q preprod
+#PBS -A TEST-T2O
+#PBS -l select=2:ncpus=1:mpiprocs=1
+#PBS -l walltime=00:10:00
+#PBS -N osu_latency
+
+module load PrgEnv-intel
+module load cray-pals/1.0.12
+module load cray-mpich/8.1.19
+
+cd /lfs/f1/ops/para/tmp/latency_test
+
+#mpiexec -n2 --ppn 1 --cpu-bind core /lfs/h1/nco/idsb/noscrub/james.polly/work/omb/nimbus/benchmarks/wcoss2/osu-micro-benchmarks-7.5.2/build/lib/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+mpiexec -n2 --ppn 1 --cpu-bind core /lfs/h1/nco/idsb/noscrub/james.polly/work/omb/old/osu-micro-benchmarks-7.5.2/build/lib/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+
+##### End of job script
+------------------------------------------------------------------
+

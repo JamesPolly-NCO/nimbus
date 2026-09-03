@@ -1,1 +1,3 @@
 benchmarks/*/osu-micro-benchmarks*
+benchmarks/wcoss2/latency/results/raw_data/*.*
+!benchmarks/wcoss2/latency/results/raw_data/.gitkeep
