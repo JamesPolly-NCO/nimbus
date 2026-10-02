@@ -1,3 +1,6 @@
+nimbus_eae_venv/
+__pycache__/
+*.pyc
 benchmarks/*/osu-micro-benchmarks*
 benchmarks/wcoss2/latency/results/raw_data/*.*
 !benchmarks/wcoss2/latency/results/raw_data/.gitkeep
