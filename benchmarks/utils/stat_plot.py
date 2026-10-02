@@ -59,18 +59,20 @@ def plot_boxplot(df, machine_name, output_dir, output_image="combined_boxplot.pn
         })
 
     fig, ax = plt.subplots(figsize=(12, 6))
-    
+
     # Draw the boxplots using the statistical summaries
     bp = ax.bxp(box_data, patch_artist=True, showfliers=False)
-    
+
     # Apply styling
     for patch in bp['boxes']:
         patch.set_facecolor('lightblue')
-        
+
     ax.set_title(f"{machine_name} Latency by Packet Size ({run_count} Runs)")
     ax.set_xlabel("Packet Size (bytes)")
     ax.set_ylabel("Latency (us)")
-    
+
+    ax.set_yscale('log')
+
     # Rotate x-axis labels if the numbers overlap
     plt.xticks(rotation=45)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -79,7 +81,7 @@ def plot_boxplot(df, machine_name, output_dir, output_image="combined_boxplot.pn
 
     plt.savefig(outpath, dpi=300, bbox_inches='tight')
     print(f"\nBox plot successfully saved as '{output_image}'.")
-    
+
     plt.show()
 
 def main():
