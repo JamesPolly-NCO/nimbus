@@ -1,5 +1,7 @@
 #!/bin/bash
 
+part_group="compute-c1b"
+
 set -eo pipefail
 source /opt/intel/oneapi/compiler/2026.1/env/vars.sh
 source /opt/intel/oneapi/mpi/2021.18/env/vars.sh
@@ -24,8 +26,9 @@ if [[ ! -f $osu_latency ]]; then
 fi
 
 srun --mpi=pmi2 \
-     --partition=compute \
+     --partition=$part_group \
      --nodes=2 \
      --ntasks-per-node=1 \
+     --output=osu_latency-${part_group}.o%j \
      $osu_latency
 

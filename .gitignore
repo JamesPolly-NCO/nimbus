@@ -2,5 +2,16 @@ nimbus_eae_venv/
 __pycache__/
 *.pyc
 benchmarks/*/osu-micro-benchmarks*
+
+benchmarks/nimbus/latency/rack_results/*.*
+!benchmarks/nimbus/latency/rack_results/.gitkeep
+benchmarks/nimbus/latency/compute_results/*.*
+!benchmarks/nimbus/latency/compute_results/.gitkeep
+benchmarks/nimbus/latency/compute-c1b_no-rv_results/*.*
+!benchmarks/nimbus/latency/compute-c1b_no-rv_results/.gitkeep
+
+benchmarks/nimbus/latency/compute-c1b_rv_results/raw_data/*.*
+!benchmarks/nimbus/latency/compute-c1b_rv_results/raw_data/.gitkeep
+
 benchmarks/wcoss2/latency/results/raw_data/*.*
 !benchmarks/wcoss2/latency/results/raw_data/.gitkeep
