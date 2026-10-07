@@ -18,6 +18,7 @@ Pygments==2.14.0
 pyparsing==3.1.4
 python-dateutil==2.9.0.post0
 pytz==2026.4
+pyqt5
 six==1.17.0
 traitlets==4.3.3
 wcwidth==0.2.14

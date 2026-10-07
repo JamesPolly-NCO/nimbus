@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ../../../../nimbus_eae_venv/bin/activate
+#source /u/james.polly/venv/diagnostics/bin/activate
 
 utilsdir="../../../utils/"
 datadir="./raw_data"

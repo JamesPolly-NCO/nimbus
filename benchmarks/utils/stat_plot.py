@@ -77,6 +77,9 @@ def plot_boxplot(df, machine_name, output_dir, output_image="combined_boxplot.pn
     plt.xticks(rotation=45)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
 
+    # Set y-axis upper limit
+    plt.ylim(0.1,500)
+
     outpath = Path(output_dir).joinpath(output_image)
 
     plt.savefig(outpath, dpi=300, bbox_inches='tight')
