@@ -1,0 +1,53 @@
+{
+  "name": "REPLACE_WITH_VM_NAME",
+  "machineType": "projects/wcoss-eae-project-1/zones/us-central1-b/machineTypes/c4d-highcpu-16",
+  "tags": {
+    "items": [
+      "wcoss3-compute"
+    ]
+  },
+  "metadata": {
+    "items": [
+      {
+        "key": "enable-oslogin",
+        "value": "true"
+      }
+    ]
+  },
+  "networkInterfaces": [
+    {
+      "network": "projects/nimbus-eae-host/global/networks/nimbus-eae-vpc",
+      "subnetwork": "projects/nimbus-eae-host/regions/us-central1/subnetworks/wcoss3-subnet"
+    }
+  ],
+  "disks": [
+    {
+      "type": "PERSISTENT",
+      "boot": true,
+      "mode": "READ_WRITE",
+      "autoDelete": true,
+      "initializeParams": {
+        "sourceImage": "projects/wcoss-eae-project-1/global/images/nimbus-eae-hpc-rocky96-530b02d-20261027-145727",
+        "diskSizeGb": "50"
+      }
+    }
+  ],
+  "serviceAccounts": [
+    {
+      "email": "178248847865-compute@developer.gserviceaccount.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/devstorage.read_only",
+        "https://www.googleapis.com/auth/logging.write",
+        "https://www.googleapis.com/auth/monitoring.write",
+        "https://www.googleapis.com/auth/service.management.readonly",
+        "https://www.googleapis.com/auth/servicecontrol",
+        "https://www.googleapis.com/auth/trace.append"
+      ]
+    }
+  ],
+  "shieldedInstanceConfig": {
+    "enableSecureBoot": false,
+    "enableVtpm": true,
+    "enableIntegrityMonitoring": true
+  }
+}

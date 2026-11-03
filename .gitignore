@@ -1,6 +1,11 @@
 nimbus_eae_venv/
 __pycache__/
 *.pyc
+
+vms/nimbus-eae-ansible
+vms/run_polly-test-*.json
+
+
 benchmarks/*/osu-micro-benchmarks*
 
 benchmarks/nimbus/latency/rack_results/*.*
