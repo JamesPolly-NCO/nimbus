@@ -41,6 +41,18 @@ To spin up a new VM and run the provisioning process, follow these steps:
    ./nimbus-eae-ansible/run_playbook_$VM_NAME.sh
    ```
 
+## SSH
+
+To authenticate, ensure that your `~/.ssh/config` file is updated as follows:
+   ```bash
+   Host $VM_NAME
+       IdentityFile ~/.ssh/google_compute_engine
+   ```
+Then the usual SSH client can be used as follows:
+   ```bash
+   ssh $VM_NAME
+   ```
+
 ## ⚙️ Configuration (Optional)
 *Note: Update this section based on your specific script parameters.*
 
