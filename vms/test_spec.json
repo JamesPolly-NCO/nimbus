@@ -1,6 +1,6 @@
 {
   "name": "REPLACE_WITH_VM_NAME",
-  "machineType": "projects/wcoss-eae-project-1/zones/us-central1-b/machineTypes/c4d-highcpu-16",
+  "machineType": "projects/wcoss-eae-project-1/zones/us-central1-b/machineTypes/c4d-highcpu-96",
   "tags": {
     "items": [
       "wcoss3-compute"
