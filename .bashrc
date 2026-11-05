@@ -19,7 +19,7 @@ pdym7=$(date "+%Y%m%d" -d "$pdy - 7 day")
 alias gd="pushd"
 alias pd="popd"
 alias dirs="dirs -v"
-
+alias vi="vim"
 alias lld="ls -lda"
 
 qcd () {
