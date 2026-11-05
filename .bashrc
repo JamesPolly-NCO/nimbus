@@ -26,8 +26,8 @@ qcd () {
 	# accept 1 argument that is a string key, and perform a different
 	# "pushd" operation for each key
 	case "$1" in
-		prodoutput)
-                        pushd /lfs/h1/ops/prod/output/$pdy
+		homec1b)
+                        pushd /lfs-c1b/home/james_polly_hpc_noaa_gov
 			;;
 		paraoutput)
                         pushd /lfs/h1/ops/para/output/$pdy
@@ -39,7 +39,7 @@ qcd () {
 			;;
 	esac
 }
-complete -W "ecflowlog noscrub longrun prodoutput paraoutput testoutput prodcom paracom testcom prodpackage parapackage testpackage prodruntime pararuntime testrrfscom testrrfshome pararrfshome pararrfscom noscrubrrfs" qcd
+complete -W "homec1b" qcd
 
 # TODO: add completion functionality for programs e.g.
 # https://www.gnu.org/software/bash/manual/html_node/A-Programmable-Completion-Example.html

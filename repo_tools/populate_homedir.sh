@@ -17,8 +17,9 @@ filelist=./repo_tools/rsync_files_from.tmp
 cat << EOF > $filelist
 .bashrc
 .vimrc
+tools/
 EOF
 
 
 rsync -avh --files-from=$filelist ./ /home/james_polly_hpc_noaa_gov/
-#rm $filelist
+rm $filelist
