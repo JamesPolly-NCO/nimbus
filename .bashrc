@@ -1,6 +1,6 @@
 set -o vi
 
-PS1="\u@\h:\W> "
+export PS1="[\[\e[32m\]\u@\h\[\e[m\]:\W]\$ "
 
 # eval needed because dircolors only prints commands to stdout
 #eval $(dircolors -b ~/.dircolors)
