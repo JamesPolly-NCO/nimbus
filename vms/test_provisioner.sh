@@ -1,6 +1,22 @@
 #!/bin/bash
 # Exit immediately if a command exits with a non-zero status
 set -e 
+if [[ -z "$1" ]]; then
+    echo "Error: No argument provided."
+    echo "For usage, see help via: $0 -h"
+    exit 1
+fi
+
+# Parse args
+case "$1" in
+  -h|--help)
+    echo "Usage: $0 [options] SPEC_PATH_JSON"
+    echo "  -h, --help      Show help"
+    exit 0
+    ;;
+  *)
+    ;;
+esac
 
 ANSIBLE_DIR="nimbus-eae-ansible"
 if [[ ! -d $ANSIBLE_DIR ]]; then 
@@ -10,15 +26,24 @@ if [[ ! -d $ANSIBLE_DIR ]]; then
     exit
 fi
 
+SPEC_PATH=$1
+if [[ ! -e $SPEC_PATH ]]; then
+    echo " Error: $SPEC_PATH does not exist"
+    echo " To fix this, run the setup_ansible.sh script."
+    echo " Exiting."
+    exit
+fi
+SPEC_NAME=$(basename $SPEC_PATH .json)
+
 # --- Configuration ---
-VM_NAME="polly-test-$(date +%Y%m%d-%H%M)"
+VM_NAME="polly-$SPEC_NAME-$(date +%Y%m%d-%H%M)"
 ZONE="us-central1-b"
 PROJECT="wcoss-eae-project-1"
 PLAYBOOK="playbooks/compute_nodes.yml"
 INVENTORY_FILE="dynamic_test_inventory.yml"
 
 # Inject the dynamic VM name into the JSON template
-sed "s/REPLACE_WITH_VM_NAME/$VM_NAME/g" test_spec.json > "run_$VM_NAME.json"
+sed "s/REPLACE_WITH_VM_NAME/$VM_NAME/g" $SPEC_PATH > "run_$VM_NAME.json"
 
 echo "====================================================="
 echo " Starting Test VM Provisioning: $VM_NAME"
@@ -83,6 +108,10 @@ ANSIBLE_INVENTORY_ENABLED=yaml,ini,gcp_compute \
 ansible-playbook -i "$INVENTORY_FILE" "$PLAYBOOK" \
     --diff \
     -e "zone=$ZONE"
+echo "====================================================="
+echo " Rerun the ansible playbook until output shows "changed: 0" as follows:"
+echo " ./$ANSIBLE_DIR/run_playbook_$VM_NAME.sh"
+echo "====================================================="
 EOF
 chmod +x run_playbook_$VM_NAME.sh
 

@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 
 vms/nimbus-eae-ansible
-vms/run_polly-test-*.json
+vms/run_*.json
 
 
 benchmarks/*/osu-micro-benchmarks*
